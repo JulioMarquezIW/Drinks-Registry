@@ -15,7 +15,7 @@ def get_all_data():
     return jsonify(all_data)
 
 
-@app.route("/api/drink", methods=["GET", "POST", "PUT"])
+@app.route("/api/drink", methods=["GET", "POST", "PUT", "DELETE"])
 def add_new_drink():
     if request.method == 'GET':
         all_data = store.get_all_data()
@@ -29,6 +29,12 @@ def add_new_drink():
     if request.method == 'PUT':
         data = request.get_json() or {}
         store.update_drink(data['drink_id'], data['drink_name'], data['stock'])
+
+        return Response(status=201)
+
+    if request.method == 'DELETE':
+        data = request.get_json() or {}
+        store.delete_drink(data['drink_id'])
 
         return Response(status=201)
 
