@@ -39,6 +39,15 @@ def get_all_data():
     return result
 
 
+def get_all_data_by_id(drink_id):
+    command = f"SELECT * FROM drink_management.Drink WHERE drink_id={drink_id};"
+    result = run_db_get_command(command,
+                                "Error reading data from server!\n" +
+                                "function: get_all_data\n" +
+                                command)
+    return result
+
+
 def is_in_db(table, column_to_check, looking_for_value):
     result = run_db_get_command(f"SELECT * FROM drink_management.{table} WHERE {column_to_check}='{looking_for_value}';",
                                 "Error reading data from server!\n" +

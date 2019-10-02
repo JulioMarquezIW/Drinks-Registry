@@ -39,5 +39,12 @@ def add_new_drink():
         return Response(status=201)
 
 
+@app.route("/api/drink/<int:id>", methods=["GET"])
+def get_drink_by_id(id):
+    if request.method == 'GET':
+        all_data = store.get_all_data_by_id(id)
+        return jsonify(all_data)
+
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8085)
