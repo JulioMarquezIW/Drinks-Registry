@@ -1,5 +1,8 @@
+from connection import create_db_connection
+import sys
+
 def get_all_data():
-    command = f"SELECT * FROM drink_management.Drinks;"
+    command = f"SELECT * FROM drink_management.Drink;"
     result = run_db_get_command(command ,
                                 "Error reading data from server!\n" +
                                 "function: get_all_data\n" +
