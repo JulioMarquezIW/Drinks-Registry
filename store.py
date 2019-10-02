@@ -1,6 +1,6 @@
 def get_all_data():
     command = f"SELECT * FROM drink_management.Drinks;"
-    result = run_db_get_command(command ,
+    result = run_db_get_command(command,
                                 "Error reading data from server!\n" +
                                 "function: get_all_data\n" +
                                 command)
