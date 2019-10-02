@@ -20,6 +20,11 @@ def add_new_drink(drink_name, stock_level):
     return run_db_set_command(command, "Error running command" + command)
 
 
+def update_drink(drink_id, drink_name, stock_level):
+    command = f"UPDATE drink_management.Drink SET name='{drink_name}',  stock={stock_level} WHERE drink_id={drink_id};"
+    return run_db_set_command(command, "Error running command" + command)
+
+
 def get_all_data():
     command = f"SELECT * FROM drink_management.Drink;"
     result = run_db_get_command(command,
