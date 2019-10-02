@@ -1,5 +1,19 @@
-from connection import create_db_connection
+from os import environ
+import pymysql
 import sys
+
+
+def create_db_connection():
+    db = pymysql.connect(
+
+        environ.get('DB_HOST_DRINK'),
+        environ.get('DB_USER_DRINK'),
+        environ.get('DB_PASSWORD_DRINK'),
+        environ.get('DB_NAME_DRINK'),
+        autocommit=True
+    )
+    return db
+
 
 def get_all_data():
     command = f"SELECT * FROM drink_management.Drink;"
