@@ -15,5 +15,11 @@ def get_all_data():
     return jsonify(all_data)
 
 
+@app.route("/api/add", methods=["GET", "POST"])
+def add_new_drink():
+    all_data = store.get_all_data()
+    return jsonify(all_data)
+
+
 if __name__ == "__main__":
     app.run()

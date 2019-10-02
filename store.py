@@ -15,6 +15,11 @@ def create_db_connection():
     return db
 
 
+def add_new_drink(drink_name, stock_level):
+    command = f"INSERT INTO drink_management.Drink (name, stock) VALUES ('{drink_name}', {stock_level});"
+    return run_db_set_command(command, "Error running command" + command)
+
+
 def get_all_data():
     command = f"SELECT * FROM drink_management.Drink;"
     result = run_db_get_command(command,
