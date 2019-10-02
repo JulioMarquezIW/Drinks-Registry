@@ -15,13 +15,13 @@ def create_db_connection():
     return db
 
 
-def add_new_drink(drink_name, stock_level):
-    command = f"INSERT INTO drink_management.Drink (name, stock) VALUES ('{drink_name}', {stock_level});"
+def add_new_drink(drink_name, stock_level, isAlcoholic, temp):
+    command = f"INSERT INTO drink_management.Drink (name, stock, isAlcoholic, temp) VALUES ('{drink_name}', {stock_level}, {isAlcoholic}, '{temp}');"
     return run_db_set_command(command, "Error running command" + command)
 
 
-def update_drink(drink_id, drink_name, stock_level):
-    command = f"UPDATE drink_management.Drink SET name='{drink_name}',  stock={stock_level} WHERE drink_id={drink_id};"
+def update_drink(drink_id, drink_name, stock_level, isAlcoholic, temp):
+    command = f"UPDATE drink_management.Drink SET name='{drink_name}',  stock={stock_level}, isAlcoholic={bool(isAlcoholic)}, temp='{temp}'  WHERE drink_id={drink_id};"
     return run_db_set_command(command, "Error running command" + command)
 
 

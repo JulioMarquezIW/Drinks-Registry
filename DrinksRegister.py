@@ -22,13 +22,15 @@ def add_new_drink():
         return jsonify(all_data)
     if request.method == 'POST':
         data = request.get_json() or {}
-        store.add_new_drink(data['drink_name'], data['stock'])
+        store.add_new_drink(data['drink_name'], data['stock'],
+                            data['isAlcoholic'], data['temp'])
 
         return Response(status=201)
 
     if request.method == 'PUT':
         data = request.get_json() or {}
-        store.update_drink(data['drink_id'], data['drink_name'], data['stock'])
+        store.update_drink(data['drink_id'], data['drink_name'],
+                           data['stock'], data['isAlcoholic'], data['temp'])
 
         return Response(status=201)
 
