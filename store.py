@@ -52,7 +52,7 @@ def is_in_db(table, column_to_check, looking_for_value):
 
 def run_db_get_command(command, error):
     db_connection = create_db_connection()
-    cursor = db_connection.cursor()
+    cursor = db_connection.cursor(pymysql.cursors.DictCursor)
     try:
         cursor.execute(command)
         results = cursor.fetchall()
