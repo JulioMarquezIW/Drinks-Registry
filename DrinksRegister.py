@@ -6,7 +6,20 @@ app = Flask(__name__)
 
 @app.route("/", methods=["GET"])
 def home():
-    return "hello world!"
+    return {
+        "/": {
+            "GET": "Returns API endpoints"
+        },
+        "/api": {
+            "GET": "Returns JSON object of all drinks"
+        },
+        "/api/drink": {
+            "GET": "Returns JSON object of all drinks",
+            "POST": "Used to add a new drink into the registry",
+            "PUT": "Used to update a drink in the registery",
+            "DELETE": "Deletes a drink from the registry"
+        }
+    }
 
 
 @app.route("/api", methods=["GET"])
